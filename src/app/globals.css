@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+:root {
+  --background: #FFF6F0;
+  /* Cream / Off-White */
+  --foreground: #202020;
+  /* Dark Charcoal */
+
+  --card: #FFF6F0;
+  --card-foreground: #202020;
+
+  --popover: #FFF6F0;
+  --popover-foreground: #202020;
+
+  --primary: #730F13;
+  /* Merah Marun */
+  --primary-foreground: #FFF6F0;
+
+  --secondary: #BA5A31;
+  /* Terracotta */
+  --secondary-foreground: #FFF6F0;
+
+  --muted: #F5EBE0;
+  /* Warm Beige */
+  --muted-foreground: #78350F;
+  /* Darker brown for readability */
+
+  --accent: #FFE4D6;
+  /* Very light Terracotta */
+  --accent-foreground: #730F13;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #BA5A31;
+  /* Terracotta */
+  --input: #BA5A31;
+  --ring: #BA5A31;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #202020;
+    --foreground: #FFF6F0;
+
+    --card: #202020;
+    --card-foreground: #FFF6F0;
+
+    --popover: #202020;
+    --popover-foreground: #FFF6F0;
+
+    --primary: #EF4444;
+    /* Brighter red for dark mode maybe? Or keep Brand. Let's keep consistent for now or adapt slightly light */
+    --primary: #9B1C1C;
+    /* Lighter Marun */
+    --primary-foreground: #FFF6F0;
+
+    --secondary: #BA5A31;
+    --secondary-foreground: #FFF6F0;
+
+    --muted: #2d2d2d;
+    --muted-foreground: #BA5A31;
+
+    --accent: #2d2d2d;
+    --accent-foreground: #FFF6F0;
+
+    --destructive: #7f1d1d;
+    --destructive-foreground: #ffffff;
+
+    --border: #BA5A31;
+    --input: #BA5A31;
+    --ring: #BA5A31;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
