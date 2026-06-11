@@ -19,7 +19,7 @@ export default function LoginPage() {
         e.preventDefault()
         const success = login(username, password)
         if (success) {
-            router.push("/") // Redirect to the dashboard
+            router.push("/dashboard")
         } else {
             setError("Username atau password salah!")
         }

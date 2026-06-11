@@ -79,13 +79,13 @@ export default function TeamPage() {
                     </Button>
 
                     {/* Server badge untuk demo AWS ALB */}
-                    <div className="flex items-center gap-2 rounded-full border border-amber-500/40 bg-slate-800 px-4 py-1.5 shadow-sm">
-                        <Server className="h-3.5 w-3.5 text-amber-400" />
-                        <span className="text-xs text-slate-400">Served by:</span>
-                        <span className="font-mono text-xs font-semibold text-amber-400">
+                    <div className="flex items-center gap-3 rounded-xl border border-amber-500/50 bg-slate-800 px-6 py-3 shadow-md">
+                        <Server className="h-5 w-5 text-amber-400" />
+                        <span className="text-sm font-medium text-slate-300">Served by:</span>
+                        <span className="font-mono text-lg font-bold tracking-widest text-amber-400">
                             {instanceName}
                         </span>
-                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-400" />
+                        <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-amber-400" />
                     </div>
                 </section>
             </main>
