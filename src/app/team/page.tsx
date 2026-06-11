@@ -1,13 +1,14 @@
-"use client"
+// Server Component — dibaca tiap request agar INSTANCE_NAME selalu fresh
+export const dynamic = "force-dynamic"
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
-import { LogIn } from "lucide-react"
+import { LogIn, Server } from "lucide-react"
 
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { MemberImage } from "@/components/team/MemberImage"
 
 const teamMembers = [
     {
@@ -28,36 +29,9 @@ const teamMembers = [
     },
 ]
 
-function MemberImage({
-    src,
-    fallbackSrc,
-    alt,
-}: {
-    src: string
-    fallbackSrc?: string
-    alt: string
-}) {
-    const [imageSrc, setImageSrc] = useState(src)
-
-    return (
-        <div className="relative aspect-square w-full overflow-hidden rounded-md bg-muted">
-            <Image
-                src={imageSrc}
-                alt={alt}
-                fill
-                sizes="(min-width: 768px) 33vw, 100vw"
-                className="object-cover object-center"
-                onError={() => {
-                    if (fallbackSrc && imageSrc !== fallbackSrc) {
-                        setImageSrc(fallbackSrc)
-                    }
-                }}
-            />
-        </div>
-    )
-}
-
 export default function TeamPage() {
+    const instanceName = process.env.INSTANCE_NAME ?? "UNKNOWN"
+
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
             <Navbar />
@@ -103,6 +77,16 @@ export default function TeamPage() {
                             Login
                         </Link>
                     </Button>
+
+                    {/* Server badge untuk demo AWS ALB */}
+                    <div className="flex items-center gap-2 rounded-full border border-amber-500/40 bg-slate-800 px-4 py-1.5 shadow-sm">
+                        <Server className="h-3.5 w-3.5 text-amber-400" />
+                        <span className="text-xs text-slate-400">Served by:</span>
+                        <span className="font-mono text-xs font-semibold text-amber-400">
+                            {instanceName}
+                        </span>
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-400" />
+                    </div>
                 </section>
             </main>
         </div>
